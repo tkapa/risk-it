@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddgefhw6ojm16"]
+[gd_scene load_steps=10 format=3 uid="uid://ddgefhw6ojm16"]
 
 [ext_resource type="Script" uid="uid://dr3m7nqqapjrg" path="res://Entities/Player/player.gd" id="1_3uyv8"]
 [ext_resource type="Texture2D" uid="uid://drdrg20bydfg8" path="res://Assets/Player/Risk.png" id="1_mv1ah"]
+[ext_resource type="PackedScene" uid="uid://dwc55pdsak3ok" path="res://Entities/Attacks/Chip.tscn" id="2_5c2io"]
 [ext_resource type="PackedScene" uid="uid://g8lh65rii5n" path="res://Components/HealthComponent/HealthComponent.tscn" id="3_lu8i8"]
+[ext_resource type="PackedScene" uid="uid://dcdqr53wunobp" path="res://Components/HurtboxComponent/HurtboxComponent.tscn" id="4_tekja"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3uyv8"]
 atlas = ExtResource("1_mv1ah")
@@ -20,17 +22,31 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mv1ah"]
+radius = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tekja"]
 radius = 4.0
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_3uyv8")
+base_chip = ExtResource("2_5c2io")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ix6vc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_mv1ah")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_lu8i8")]
+
+[node name="HurtboxComponent" parent="." instance=ExtResource("4_tekja")]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_tekja")
+
+[connection signal="health_updated" from="HealthComponent" to="." method="_on_health_component_health_updated"]
+[connection signal="on_death" from="HealthComponent" to="." method="_on_health_component_on_death"]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://dv5mjtjnmmlae"]
+
+[ext_resource type="Script" uid="uid://dyxs4lja8aogl" path="res://Entities/Enemies/enemy.gd" id="1_7o3vr"]
+[ext_resource type="Resource" uid="uid://v4ht4q6lj747" path="res://Resources/Enemies/slime.tres" id="2_o1grr"]
+[ext_resource type="Texture2D" uid="uid://ihgiqih6m7m0" path="res://Assets/Enemies/Slime.png" id="2_wbf3x"]
+[ext_resource type="PackedScene" uid="uid://dcdqr53wunobp" path="res://Components/HurtboxComponent/HurtboxComponent.tscn" id="3_6rqwt"]
+[ext_resource type="PackedScene" uid="uid://g8lh65rii5n" path="res://Components/HealthComponent/HealthComponent.tscn" id="3_ihd1f"]
+[ext_resource type="PackedScene" uid="uid://c4o66nlqmj07u" path="res://Components/HitboxComponent/HitboxComponent.tscn" id="4_4jf10"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wbf3x"]
+radius = 3.16228
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6rqwt"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ihd1f"]
+radius = 6.0
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_7o3vr")
+enemy_stats = ExtResource("2_o1grr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_wbf3x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_wbf3x")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_ihd1f")]
+
+[node name="HurtboxComponent" parent="." instance=ExtResource("3_6rqwt")]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_6rqwt")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("4_4jf10")]
+collision_layer = 4
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_ihd1f")
+
+[connection signal="on_death" from="HealthComponent" to="." method="_on_health_component_on_death"]

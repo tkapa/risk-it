@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwc55pdsak3ok"]
+
+[ext_resource type="Script" uid="uid://6ixyl6p88bn7" path="res://Entities/Attacks/chip.gd" id="1_3ngcf"]
+[ext_resource type="Texture2D" uid="uid://ck8qoaq0tqrto" path="res://Assets/Chips/Chip-1.png" id="1_8f2d6"]
+[ext_resource type="PackedScene" uid="uid://c4o66nlqmj07u" path="res://Components/HitboxComponent/HitboxComponent.tscn" id="2_kkoj0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u6qvb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ngcf"]
+radius = 9.0
+
+[node name="Chip" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_3ngcf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_u6qvb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8f2d6")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("2_kkoj0")]
+collision_layer = 2
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_3ngcf")
