@@ -20,11 +20,16 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		_cursor_dir = position.direction_to(event.global_position).normalized()
+		var camera = get_viewport().get_camera_2d()
+		var cursor = camera.get_global_mouse_position()
+		_cursor_dir = global_position.direction_to(cursor)
 
 func _process(delta):
 	if Input.is_action_just_pressed("throw"):
 		_throw()
+	
+	if Input.is_action_just_pressed("pause"):
+		SignalBus.emit_signal("pause_game")
 
 func _throw():
 	var chip : Chip = base_chip.instantiate()

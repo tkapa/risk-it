@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkck2sgtuhhhm"]
+[gd_scene load_steps=8 format=3 uid="uid://dkck2sgtuhhhm"]
 
 [ext_resource type="Theme" uid="uid://c8sqrg1dqvo5y" path="res://Resources/Themes/default_ui.tres" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://ddgefhw6ojm16" path="res://Entities/Player/player.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://cevgomea2oaeh" path="res://Scenes/game_area.gd" id="2_kry3j"]
-[ext_resource type="PackedScene" uid="uid://dv5mjtjnmmlae" path="res://Entities/Enemies/enemy.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://se3rgu7umfgo" path="res://Scenes/UI/player_hp.tscn" id="3_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bmj1phiqd4ot5" path="res://Entities/Pickups/Chip/chip_pickup.tscn" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://deqbdl82kddyn" path="res://Scenes/enemy_spawn_track.gd" id="7_6bp64"]
@@ -44,11 +43,11 @@ theme = null
 scale = Vector2(1.5, 1.5)
 script = ExtResource("2_kry3j")
 
+[node name="Camera2D" type="Camera2D" parent="GameArea"]
+position = Vector2(214, 119.333)
+
 [node name="Player" parent="GameArea" instance=ExtResource("1_jjgbg")]
 position = Vector2(247.333, 142)
-
-[node name="Enemy" parent="GameArea" instance=ExtResource("3_8gbba")]
-position = Vector2(192, 91.3333)
 
 [node name="ChipPickup" parent="GameArea" instance=ExtResource("4_jjvhh")]
 position = Vector2(226, 129.333)
