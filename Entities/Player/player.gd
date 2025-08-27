@@ -27,9 +27,6 @@ func _input(event):
 func _process(delta):
 	if Input.is_action_just_pressed("throw"):
 		_throw()
-	
-	if Input.is_action_just_pressed("pause"):
-		SignalBus.emit_signal("pause_game")
 
 func _throw():
 	var chip : Chip = base_chip.instantiate()
