@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dr3m7nqqapjrg" path="res://Entities/Player/player.gd" id="1_3uyv8"]
 [ext_resource type="Texture2D" uid="uid://drdrg20bydfg8" path="res://Assets/Player/Risk.png" id="1_mv1ah"]
-[ext_resource type="PackedScene" uid="uid://dwc55pdsak3ok" path="res://Entities/Attacks/Chip.tscn" id="2_5c2io"]
+[ext_resource type="PackedScene" uid="uid://dwc55pdsak3ok" path="res://Entities/Attacks/chip.tscn" id="2_5c2io"]
 [ext_resource type="PackedScene" uid="uid://g8lh65rii5n" path="res://Components/HealthComponent/HealthComponent.tscn" id="3_lu8i8"]
 [ext_resource type="PackedScene" uid="uid://dcdqr53wunobp" path="res://Components/HurtboxComponent/HurtboxComponent.tscn" id="4_tekja"]
 

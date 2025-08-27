@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwc55pdsak3ok"]
+[gd_scene load_steps=7 format=3 uid="uid://dwc55pdsak3ok"]
 
-[ext_resource type="Script" uid="uid://6ixyl6p88bn7" path="res://Entities/Attacks/chip.gd" id="1_3ngcf"]
-[ext_resource type="Texture2D" uid="uid://ck8qoaq0tqrto" path="res://Assets/Chips/Chip-1.png" id="1_8f2d6"]
-[ext_resource type="PackedScene" uid="uid://c4o66nlqmj07u" path="res://Components/HitboxComponent/HitboxComponent.tscn" id="2_kkoj0"]
+[ext_resource type="Script" uid="uid://6ixyl6p88bn7" path="res://Entities/Attacks/chip.gd" id="1_oqvyq"]
+[ext_resource type="Texture2D" uid="uid://ck8qoaq0tqrto" path="res://Assets/Chips/Chip-1.png" id="2_ih3yp"]
+[ext_resource type="PackedScene" uid="uid://bmj1phiqd4ot5" path="res://Entities/Pickups/Chip/chip_pickup.tscn" id="2_y4kt8"]
+[ext_resource type="PackedScene" uid="uid://c4o66nlqmj07u" path="res://Components/HitboxComponent/HitboxComponent.tscn" id="3_y4kt8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u6qvb"]
 
@@ -13,16 +14,17 @@ radius = 9.0
 collision_layer = 0
 collision_mask = 0
 motion_mode = 1
-script = ExtResource("1_3ngcf")
+script = ExtResource("1_oqvyq")
+chip_pickup = ExtResource("2_y4kt8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CircleShape2D_u6qvb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_8f2d6")
+texture = ExtResource("2_ih3yp")
 
-[node name="HitboxComponent" parent="." instance=ExtResource("2_kkoj0")]
+[node name="HitboxComponent" parent="." instance=ExtResource("3_y4kt8")]
 collision_layer = 2
 damage = 1
 

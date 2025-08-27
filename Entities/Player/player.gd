@@ -9,7 +9,7 @@ class_name Player extends CharacterBody2D
 
 @export_category("Combat Variables")
 @export var base_chip : PackedScene
-@export var base_throw_strength : int = 100
+@export var base_throw_strength : int = 200
 
 var _cursor_dir : Vector2
 
@@ -33,7 +33,8 @@ func _throw():
 	add_sibling(chip)
 	
 	var attack : Attack = Attack.new()
-	health.set_max_health(health.max_health - 1)
+	attack.damage = 1
+	health.take_damage(attack)
 
 func _physics_process(delta):
 	var input_vector = _get_movement()
@@ -46,8 +47,10 @@ func _get_movement():
 	
 	return Vector2(x, y)
 
-func _on_health_component_health_updated(new_current_health: int, new_max_health: int):
-	print("Health Updated: Curr: ", new_current_health, " Max: ", new_max_health)
+func _on_health_component_health_updated(new_current_health: int, previous_health: int):
+	print("Health Updated: Curr: ", new_current_health, " Previous: ", previous_health)
+	SignalBus.player_health_updated.emit(new_current_health, previous_health)
 
 func _on_health_component_on_death():
 	print("Player Died!")
+	SignalBus.player_died.emit()
