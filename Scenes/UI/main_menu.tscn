@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpqjgx6x7u68e"]
+[gd_scene load_steps=3 format=3 uid="uid://cpqjgx6x7u68e"]
 
 [ext_resource type="Theme" uid="uid://c8sqrg1dqvo5y" path="res://Resources/Themes/default_ui.tres" id="1_5wsvm"]
+[ext_resource type="Script" uid="uid://bcy43m5pdeex5" path="res://Scenes/UI/main_menu.gd" id="2_i2xx2"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_5wsvm")
+script = ExtResource("2_i2xx2")
 
 [node name="GameName" type="Label" parent="."]
 layout_mode = 1
@@ -27,7 +29,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -213.0
+offset_top = -217.0
 offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -35,16 +37,108 @@ grow_vertical = 0
 [node name="MainButtons" type="VBoxContainer" parent="CenterContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 10
 
 [node name="PlayButton" type="Button" parent="CenterContainer/MainButtons"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "PLAY"
 
 [node name="SettingsButton" type="Button" parent="CenterContainer/MainButtons"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "SETTINGS"
 
+[node name="CreditsButton" type="Button" parent="CenterContainer/MainButtons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Credits
+"
+
 [node name="QuitButton" type="Button" parent="CenterContainer/MainButtons"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "QUIT"
+
+[node name="SettingsMenu" type="VBoxContainer" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Fullscreen Button" type="Button" parent="CenterContainer/SettingsMenu"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "fullscreen"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/SettingsMenu"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="MainVolSlider" type="HSlider" parent="CenterContainer/SettingsMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+step = 0.001
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/SettingsMenu"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="MusicVolumeSlider" type="HSlider" parent="CenterContainer/SettingsMenu/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 8
+step = 0.001
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CenterContainer/SettingsMenu"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="SFXVolumeSlider" type="HSlider" parent="CenterContainer/SettingsMenu/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 8
+step = 0.001
+
+[node name="BackButton" type="Button" parent="CenterContainer/SettingsMenu"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+
+[node name="CreditsMenu" type="VBoxContainer" parent="CenterContainer"]
+visible = false
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+alignment = 2
+
+[node name="Credits" type="Label" parent="CenterContainer/CreditsMenu"]
+layout_mode = 2
+text = "Game by Jadekapa
+"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="CenterContainer/CreditsMenu"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+
+[connection signal="pressed" from="CenterContainer/MainButtons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CenterContainer/SettingsMenu/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CenterContainer/CreditsMenu/BackButton" to="." method="_on_back_button_pressed"]
