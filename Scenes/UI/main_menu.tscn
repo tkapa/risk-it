@@ -42,32 +42,41 @@ theme_override_constants/separation = 10
 [node name="PlayButton" type="Button" parent="CenterContainer/MainButtons"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
 text = "PLAY"
 
 [node name="SettingsButton" type="Button" parent="CenterContainer/MainButtons"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../CreditsButton")
 text = "SETTINGS"
 
 [node name="CreditsButton" type="Button" parent="CenterContainer/MainButtons"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
 text = "Credits
 "
 
 [node name="QuitButton" type="Button" parent="CenterContainer/MainButtons"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+focus_neighbor_top = NodePath("../CreditsButton")
+focus_neighbor_bottom = NodePath("../PlayButton")
 text = "QUIT"
 
 [node name="SettingsMenu" type="VBoxContainer" parent="CenterContainer"]
 visible = false
 layout_mode = 2
 
-[node name="Fullscreen Button" type="Button" parent="CenterContainer/SettingsMenu"]
+[node name="FullscreenButton" type="Button" parent="CenterContainer/SettingsMenu"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+toggle_mode = true
 text = "fullscreen"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/SettingsMenu"]
@@ -80,8 +89,10 @@ text = "Volume"
 horizontal_alignment = 1
 
 [node name="MainVolSlider" type="HSlider" parent="CenterContainer/SettingsMenu/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
+max_value = 1.0
 step = 0.001
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/SettingsMenu"]
@@ -94,8 +105,10 @@ text = "Music Volume"
 horizontal_alignment = 1
 
 [node name="MusicVolumeSlider" type="HSlider" parent="CenterContainer/SettingsMenu/VBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
+max_value = 1.0
 step = 0.001
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="CenterContainer/SettingsMenu"]
@@ -108,8 +121,10 @@ text = "SFX Volume"
 horizontal_alignment = 1
 
 [node name="SFXVolumeSlider" type="HSlider" parent="CenterContainer/SettingsMenu/VBoxContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
+max_value = 1.0
 step = 0.001
 
 [node name="BackButton" type="Button" parent="CenterContainer/SettingsMenu"]
@@ -140,5 +155,9 @@ text = "Back"
 [connection signal="pressed" from="CenterContainer/MainButtons/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MainButtons/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MainButtons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="toggled" from="CenterContainer/SettingsMenu/FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
+[connection signal="value_changed" from="CenterContainer/SettingsMenu/VBoxContainer/MainVolSlider" to="." method="_on_main_vol_slider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/SettingsMenu/VBoxContainer2/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/SettingsMenu/VBoxContainer3/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
 [connection signal="pressed" from="CenterContainer/SettingsMenu/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="CenterContainer/CreditsMenu/BackButton" to="." method="_on_back_button_pressed"]
