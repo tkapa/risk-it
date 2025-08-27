@@ -1,10 +1,9 @@
 class_name Chip extends CharacterBody2D
 
-@export var chip_pickup : PackedScene
-
 var direction : Vector2 = Vector2.UP
 var move_speed : int = 100
 
+@export var chip_drop : ChipStats
 @export var speed_decay : int = 5
 
 func init(_move_speed: int, _direction: Vector2):
@@ -20,7 +19,5 @@ func _physics_process(delta):
 		_on_cleanup()
 
 func _on_cleanup():
-	var chip_pickup : PickupBase = chip_pickup.instantiate()
-	chip_pickup.position = position
-	add_sibling(chip_pickup)
+	SignalBus.drop_chip_pickup.emit(position, chip_drop)
 	queue_free()

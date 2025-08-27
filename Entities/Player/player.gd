@@ -20,7 +20,7 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		_cursor_dir = position.direction_to(event.position).normalized()
+		_cursor_dir = position.direction_to(event.global_position).normalized()
 
 func _process(delta):
 	if Input.is_action_just_pressed("throw"):

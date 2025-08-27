@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://6ixyl6p88bn7" path="res://Entities/Attacks/chip.gd" id="1_oqvyq"]
 [ext_resource type="Texture2D" uid="uid://ck8qoaq0tqrto" path="res://Assets/Chips/Chip-1.png" id="2_ih3yp"]
-[ext_resource type="PackedScene" uid="uid://bmj1phiqd4ot5" path="res://Entities/Pickups/Chip/chip_pickup.tscn" id="2_y4kt8"]
+[ext_resource type="Resource" uid="uid://c0k34c66supa3" path="res://Resources/Chips/base_chip.tres" id="2_y4kt8"]
 [ext_resource type="PackedScene" uid="uid://c4o66nlqmj07u" path="res://Components/HitboxComponent/HitboxComponent.tscn" id="3_y4kt8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u6qvb"]
@@ -15,7 +15,7 @@ collision_layer = 0
 collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_oqvyq")
-chip_pickup = ExtResource("2_y4kt8")
+chip_drop = ExtResource("2_y4kt8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

@@ -1,7 +1,23 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://v4ht4q6lj747"]
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=6 format=3 uid="uid://v4ht4q6lj747"]
 
 [ext_resource type="Resource" uid="uid://c0k34c66supa3" path="res://Resources/Chips/base_chip.tres" id="1_qurrs"]
 [ext_resource type="Script" uid="uid://d4cy06b7qvxs5" path="res://Resources/Enemies/enemy_stats.gd" id="1_rkiea"]
+[ext_resource type="Texture2D" uid="uid://ihgiqih6m7m0" path="res://Assets/Enemies/Slime.png" id="3_iunsp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w631l"]
+atlas = ExtResource("3_iunsp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ie8a6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w631l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [resource]
 script = ExtResource("1_rkiea")
@@ -9,4 +25,5 @@ chip_drop = ExtResource("1_qurrs")
 name = "Enemy"
 max_health = 1
 move_speed = 10
+sprite_sheet = SubResource("SpriteFrames_ie8a6")
 metadata/_custom_type_script = "uid://d4cy06b7qvxs5"
