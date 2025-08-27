@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://v4ht4q6lj747"]
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://v4ht4q6lj747"]
 
+[ext_resource type="Resource" uid="uid://c0k34c66supa3" path="res://Resources/Chips/base_chip.tres" id="1_qurrs"]
 [ext_resource type="Script" uid="uid://d4cy06b7qvxs5" path="res://Resources/Enemies/enemy_stats.gd" id="1_rkiea"]
 
 [resource]
 script = ExtResource("1_rkiea")
+chip_drop = ExtResource("1_qurrs")
 name = "Enemy"
 max_health = 1
 move_speed = 10

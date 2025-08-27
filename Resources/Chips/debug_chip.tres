@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ChipStats" load_steps=3 format=3 uid="uid://07swicli0iu4"]
+
+[ext_resource type="Script" uid="uid://jfsat106vb3x" path="res://Resources/Chips/chip_stats.gd" id="1_mf4ve"]
+[ext_resource type="Texture2D" uid="uid://opq73fxhfdr2" path="res://icon.svg" id="2_6pggc"]
+
+[resource]
+script = ExtResource("1_mf4ve")
+value = 999
+sprite = ExtResource("2_6pggc")
+metadata/_custom_type_script = "uid://jfsat106vb3x"
