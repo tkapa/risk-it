@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkck2sgtuhhhm"]
+[gd_scene load_steps=7 format=3 uid="uid://dkck2sgtuhhhm"]
 
+[ext_resource type="Theme" uid="uid://c8sqrg1dqvo5y" path="res://Resources/Themes/default_ui.tres" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://ddgefhw6ojm16" path="res://Entities/Player/player.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://cevgomea2oaeh" path="res://Scenes/game_area.gd" id="2_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dv5mjtjnmmlae" path="res://Entities/Enemies/enemy.tscn" id="3_8gbba"]
@@ -15,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_21xkr")
 
 [node name="PlayerHp" parent="HUD" instance=ExtResource("3_jjvhh")]
 layout_mode = 0
@@ -29,6 +31,7 @@ offset_right = 89.0
 offset_bottom = 37.0
 grow_horizontal = 1
 grow_vertical = 1
+theme = null
 
 [node name="GameArea" type="Node2D" parent="."]
 scale = Vector2(1.5, 1.5)

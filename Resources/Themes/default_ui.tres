@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://c8sqrg1dqvo5y"]
 
-[ext_resource type="FontFile" uid="uid://bpsnlggxucrud" path="res://Assets/UI/Pixelify.ttf" id="1_n3ca0"]
+[ext_resource type="FontFile" uid="uid://d8i02kmlukck" path="res://Assets/UI/Silkscreen-Regular.ttf" id="1_n3ca0"]
 
 [resource]
 default_font = ExtResource("1_n3ca0")
