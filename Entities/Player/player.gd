@@ -14,6 +14,7 @@ class_name Player extends CharacterBody2D
 var _cursor_dir : Vector2
 
 func _ready():
+	GameManager.player = self
 	health.init(base_health)
 	hurtbox.init(health)
 

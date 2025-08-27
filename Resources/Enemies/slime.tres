@@ -6,5 +6,5 @@
 script = ExtResource("1_rkiea")
 name = "Enemy"
 max_health = 1
-move_speed = 100
+move_speed = 10
 metadata/_custom_type_script = "uid://d4cy06b7qvxs5"
