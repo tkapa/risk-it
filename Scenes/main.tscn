@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkck2sgtuhhhm"]
+[gd_scene load_steps=9 format=3 uid="uid://dkck2sgtuhhhm"]
 
 [ext_resource type="Theme" uid="uid://c8sqrg1dqvo5y" path="res://Resources/Themes/default_ui.tres" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://ddgefhw6ojm16" path="res://Entities/Player/player.tscn" id="1_jjgbg"]
@@ -6,6 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://dv5mjtjnmmlae" path="res://Entities/Enemies/enemy.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://se3rgu7umfgo" path="res://Scenes/UI/player_hp.tscn" id="3_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bmj1phiqd4ot5" path="res://Entities/Pickups/Chip/chip_pickup.tscn" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://deqbdl82kddyn" path="res://Scenes/enemy_spawn_track.gd" id="7_6bp64"]
+
+[sub_resource type="Curve2D" id="Curve2D_21xkr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 433.333, -6.66667, 0, 0, 0, 0, 434, 244, 0, 0, 0, 0, -0.666667, 246, 0, 0, 0, 0, -4.66667, -5.33333, 0, 0, 0, 0, 378, -8, 0, 0, 0, 0, 433.333, -6.66667)
+}
+point_count = 6
 
 [node name="Main" type="Node"]
 
@@ -45,3 +52,11 @@ position = Vector2(192, 91.3333)
 
 [node name="ChipPickup" parent="GameArea" instance=ExtResource("4_jjvhh")]
 position = Vector2(226, 129.333)
+
+[node name="EnemySpawnTrack" type="Path2D" parent="GameArea"]
+curve = SubResource("Curve2D_21xkr")
+script = ExtResource("7_6bp64")
+
+[node name="EnemySpawnPoint" type="PathFollow2D" parent="GameArea/EnemySpawnTrack"]
+position = Vector2(433.333, -6.66667)
+rotation = 1.56814
