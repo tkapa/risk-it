@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2ak7xv3n0btv"]
+
+[ext_resource type="Script" uid="uid://dc7vp6wajsiox" path="res://Components/PickUpMagnet/pick_up_magnet_component.gd" id="1_bfdev"]
+
+[node name="MagnetComponent" type="Area2D"]
+collision_mask = 16
+script = ExtResource("1_bfdev")

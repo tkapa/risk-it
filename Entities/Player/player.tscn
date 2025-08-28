@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddgefhw6ojm16"]
+[gd_scene load_steps=13 format=3 uid="uid://ddgefhw6ojm16"]
 
 [ext_resource type="Script" uid="uid://dr3m7nqqapjrg" path="res://Entities/Player/player.gd" id="1_3uyv8"]
 [ext_resource type="Texture2D" uid="uid://drdrg20bydfg8" path="res://Assets/Player/Risk.png" id="1_mv1ah"]
 [ext_resource type="PackedScene" uid="uid://dwc55pdsak3ok" path="res://Entities/Attacks/chip.tscn" id="2_5c2io"]
+[ext_resource type="PackedScene" uid="uid://d0vp86mmd7v5c" path="res://Entities/drop_shadow.tscn" id="3_4wf4l"]
 [ext_resource type="PackedScene" uid="uid://g8lh65rii5n" path="res://Components/HealthComponent/HealthComponent.tscn" id="3_lu8i8"]
 [ext_resource type="PackedScene" uid="uid://dcdqr53wunobp" path="res://Components/HurtboxComponent/HurtboxComponent.tscn" id="4_tekja"]
+[ext_resource type="PackedScene" uid="uid://b2ak7xv3n0btv" path="res://Components/PickUpMagnet/PickUpMagnetComponent.tscn" id="6_01a4e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3uyv8"]
 atlas = ExtResource("1_mv1ah")
@@ -24,6 +26,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_mv1ah"]
 radius = 2.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_01a4e"]
+radius = 25.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_tekja"]
 radius = 4.0
 
@@ -31,6 +36,9 @@ radius = 4.0
 motion_mode = 1
 script = ExtResource("1_3uyv8")
 base_chip = ExtResource("2_5c2io")
+
+[node name="DropShadow" parent="." instance=ExtResource("3_4wf4l")]
+offset = Vector2(0, 2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ix6vc")
@@ -40,6 +48,11 @@ position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_mv1ah")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_lu8i8")]
+
+[node name="MagnetComponent" parent="." instance=ExtResource("6_01a4e")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MagnetComponent"]
+shape = SubResource("CircleShape2D_01a4e")
 
 [node name="HurtboxComponent" parent="." instance=ExtResource("4_tekja")]
 collision_mask = 4

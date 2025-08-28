@@ -1,17 +1,21 @@
 [gd_scene load_steps=5 format=3 uid="uid://bmj1phiqd4ot5"]
 
 [ext_resource type="Script" uid="uid://hmyb5roy3r0m" path="res://Entities/Pickups/Chip/chip_pickup.gd" id="1_od2xt"]
-[ext_resource type="Texture2D" uid="uid://ck8qoaq0tqrto" path="res://Assets/Chips/Chip-1.png" id="1_s27tg"]
 [ext_resource type="Resource" uid="uid://c0k34c66supa3" path="res://Resources/Chips/base_chip.tres" id="2_k8gwo"]
+[ext_resource type="PackedScene" uid="uid://d0vp86mmd7v5c" path="res://Entities/drop_shadow.tscn" id="3_k8gwo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v8hte"]
 
 [node name="ChipPickup" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 16
 script = ExtResource("1_od2xt")
 chip_stats = ExtResource("2_k8gwo")
+
+[node name="DropShadow" parent="." instance=ExtResource("3_k8gwo")]
+offset = Vector2(0, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v8hte")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_s27tg")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
