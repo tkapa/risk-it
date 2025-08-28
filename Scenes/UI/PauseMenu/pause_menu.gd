@@ -4,7 +4,6 @@ class_name PauseMenu extends Control
 @onready var quit_button : Button = %QuitButton
 
 func _ready():
-	PauseManager.pause_menu = self
 	visibility_changed.connect(_on_show)
 
 func _process(delta):
@@ -12,7 +11,7 @@ func _process(delta):
 		if PauseManager.is_paused: 
 			SignalBus.unpause_game.emit()
 		else:
-			SignalBus.pause_game.emit()
+			SignalBus.pause_game.emit(self)
 
 func _on_resume_button_pressed():
 	SignalBus.unpause_game.emit()

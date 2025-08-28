@@ -26,7 +26,10 @@ texture = ExtResource("2_ih3yp")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("3_y4kt8")]
 collision_layer = 2
+collision_mask = 4
 damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_3ngcf")
+
+[connection signal="hit" from="HitboxComponent" to="." method="_on_hitbox_component_hit"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://c8sqrg1dqvo5y" path="res://Resources/Themes/default_ui.tres" id="1_ayxky"]
 [ext_resource type="Texture2D" uid="uid://ck8qoaq0tqrto" path="res://Assets/Chips/Chip-1.png" id="1_capmd"]
-[ext_resource type="Script" uid="uid://d3wqybxbahvkm" path="res://Scenes/UI/player_hp.gd" id="2_7javd"]
+[ext_resource type="Script" uid="uid://d3wqybxbahvkm" path="res://Scenes/UI/PlayerHp/player_hp.gd" id="2_7javd"]
 
 [node name="PlayerHp" type="HBoxContainer"]
 anchors_preset = 8

@@ -11,12 +11,14 @@ class_name Player extends CharacterBody2D
 @export var base_chip : PackedScene
 @export var base_throw_strength : int = 200
 
+@export var chip_strategies : Array[ChipStrategy] = []
 var _cursor_dir : Vector2
 
 func _ready():
 	GameManager.player = self
 	health.init(base_health)
 	hurtbox.init(health)
+	SignalBus.player_grant_power_up.connect(_add_chip_strategy)
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -27,16 +29,15 @@ func _input(event):
 func _process(delta):
 	if Input.is_action_just_pressed("throw"):
 		_throw()
+	if Input.is_action_just_pressed("cash_in"):
+		SignalBus.player_cash_in.emit()
 
 func _throw():
-	var chip : Chip = base_chip.instantiate()
-	chip.position = position
-	chip.scale = Vector2(0.75,0.75)
-	chip.init(base_throw_strength, _cursor_dir)
+	var chip : Chip = _setup_chip()
 	add_sibling(chip)
 	
 	var attack : Attack = Attack.new()
-	attack.damage = 1
+	attack.damage = chip.chip_cost
 	health.take_damage(attack)
 
 func _physics_process(delta):
@@ -57,3 +58,17 @@ func _on_health_component_health_updated(new_current_health: int, previous_healt
 func _on_health_component_on_death():
 	print("Player Died!")
 	SignalBus.player_died.emit()
+
+func _setup_chip() -> Chip:
+	var chip : Chip = base_chip.instantiate()
+	chip.position = position
+	chip.scale = Vector2(0.75,0.75)
+	chip.init(base_throw_strength, _cursor_dir)
+	
+	for strat in chip_strategies:
+		strat.apply_strategy(chip)
+	
+	return chip
+
+func _add_chip_strategy(strategy: ChipStrategy):
+	chip_strategies.append(strategy)

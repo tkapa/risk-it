@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="RiskIt"
-run/main_scene="uid://dkck2sgtuhhhm"
+run/main_scene="uid://cpqjgx6x7u68e"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

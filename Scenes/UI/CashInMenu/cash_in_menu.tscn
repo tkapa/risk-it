@@ -1,0 +1,151 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq2423i8mp22r"]
+
+[ext_resource type="Script" uid="uid://0mnk0cnnd08q" path="res://Scenes/UI/CashInMenu/cash_in_menu.gd" id="1_aimdy"]
+[ext_resource type="Theme" uid="uid://c8sqrg1dqvo5y" path="res://Resources/Themes/default_ui.tres" id="1_x4pae"]
+[ext_resource type="Resource" uid="uid://cjcknyqfql76k" path="res://Resources/PowerUps/damage_increase.tres" id="2_gssvh"]
+[ext_resource type="Script" uid="uid://c0fo550vtqc8y" path="res://Scenes/UI/CashInMenu/option_ui.gd" id="3_8d1is"]
+
+[node name="CashInMenu" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aimdy")
+power_up_option = ExtResource("2_gssvh")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_x4pae")
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(360, 200)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel"]
+layout_mode = 2
+offset_right = 360.0
+offset_bottom = 200.0
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "CASH IN!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Option1" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+script = ExtResource("3_8d1is")
+
+[node name="OptionName" type="Label" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option1"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Option 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option1"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 10
+text = "This power up does stuff"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AcceptButton" type="Button" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option1"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+focus_neighbor_left = NodePath("../../Option3/AcceptButton")
+focus_neighbor_right = NodePath("../../Option2/AcceptButton")
+theme_override_font_sizes/font_size = 10
+text = "Accept
+"
+
+[node name="Option2" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+script = ExtResource("3_8d1is")
+
+[node name="OptionName" type="Label" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Option 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 10
+text = "This power up does stuff"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AcceptButton" type="Button" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option2"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+focus_neighbor_left = NodePath("../../Option1/AcceptButton")
+focus_neighbor_right = NodePath("../../Option3/AcceptButton")
+theme_override_font_sizes/font_size = 10
+text = "Accept
+"
+
+[node name="Option3" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+script = ExtResource("3_8d1is")
+
+[node name="OptionName" type="Label" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Option 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 10
+text = "This power up does stuff"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AcceptButton" type="Button" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option3"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+focus_neighbor_left = NodePath("../../Option2/AcceptButton")
+focus_neighbor_right = NodePath("../../Option1/AcceptButton")
+theme_override_font_sizes/font_size = 10
+text = "Accept
+"
