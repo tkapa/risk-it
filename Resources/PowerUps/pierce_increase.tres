@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PierceChipStrategy" load_steps=3 format=3 uid="uid://bka3khmr362xj"]
+
+[ext_resource type="Script" uid="uid://jgprx48lakuq" path="res://Resources/PowerUps/scripts/pierce_chip_strategy.gd" id="1_d055t"]
+[ext_resource type="Texture2D" uid="uid://ddohnfcms5m7a" path="res://Assets/PowerUps/Biscuit2.png" id="1_e4tis"]
+
+[resource]
+script = ExtResource("1_d055t")
+name = "Pierce Up"
+description = "Increases number of hits for chips."
+icon = ExtResource("1_e4tis")
+value = 1
+cost = 1
+metadata/_custom_type_script = "uid://jgprx48lakuq"

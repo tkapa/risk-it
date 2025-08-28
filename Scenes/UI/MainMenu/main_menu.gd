@@ -20,9 +20,7 @@ func _ready():
 	play_button.grab_focus()
 
 func _on_play_button_pressed():
-	var level_name = "main"
-	var level = str("res://Scenes/", level_name, ".tscn")
-	get_tree().change_scene_to_file(level)
+	SignalBus.start_game.emit()
 
 func _on_settings_button_pressed():
 	main_buttons.visible = false

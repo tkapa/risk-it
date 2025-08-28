@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cq2423i8mp22r"]
+[gd_scene load_steps=9 format=3 uid="uid://cq2423i8mp22r"]
 
 [ext_resource type="Script" uid="uid://0mnk0cnnd08q" path="res://Scenes/UI/CashInMenu/cash_in_menu.gd" id="1_aimdy"]
 [ext_resource type="Theme" uid="uid://c8sqrg1dqvo5y" path="res://Resources/Themes/default_ui.tres" id="1_x4pae"]
+[ext_resource type="Script" uid="uid://coj73lwxo3j14" path="res://Resources/PowerUps/scripts/chip_strategy.gd" id="2_2rk2s"]
 [ext_resource type="Resource" uid="uid://cjcknyqfql76k" path="res://Resources/PowerUps/damage_increase.tres" id="2_gssvh"]
 [ext_resource type="Script" uid="uid://c0fo550vtqc8y" path="res://Scenes/UI/CashInMenu/option_ui.gd" id="3_8d1is"]
+[ext_resource type="Resource" uid="uid://bka3khmr362xj" path="res://Resources/PowerUps/pierce_increase.tres" id="4_5y8mk"]
+[ext_resource type="Resource" uid="uid://ww2scusgbqar" path="res://Resources/PowerUps/speed_increase.tres" id="5_8v2ky"]
+[ext_resource type="Texture2D" uid="uid://ck8qoaq0tqrto" path="res://Assets/Chips/Chip-1.png" id="5_xox3h"]
 
 [node name="CashInMenu" type="Control"]
 visible = false
@@ -14,7 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_aimdy")
-power_up_option = ExtResource("2_gssvh")
+power_ups = Array[ExtResource("2_2rk2s")]([ExtResource("2_gssvh"), ExtResource("4_5y8mk"), ExtResource("5_8v2ky")])
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 process_mode = 3
@@ -63,6 +67,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="OptionIcon" type="TextureRect" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_xox3h")
+
 [node name="Description" type="Label" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option1"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -97,6 +107,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="OptionIcon" type="TextureRect" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_xox3h")
+
 [node name="Description" type="Label" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option2"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -130,6 +146,12 @@ text = "Option 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="OptionIcon" type="TextureRect" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_xox3h")
 
 [node name="Description" type="Label" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option3"]
 custom_minimum_size = Vector2(100, 0)

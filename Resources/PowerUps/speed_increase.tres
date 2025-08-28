@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SpeedChipStrategy" load_steps=3 format=3 uid="uid://ww2scusgbqar"]
+
+[ext_resource type="Script" uid="uid://biwna7uagebol" path="res://Resources/PowerUps/scripts/speed_multiplier.gd" id="1_6dmjb"]
+[ext_resource type="Texture2D" uid="uid://dldxdydjdq3m2" path="res://Assets/PowerUps/Biscuit3.png" id="1_osnah"]
+
+[resource]
+script = ExtResource("1_6dmjb")
+name = "Power Up"
+description = "Increase throw power."
+icon = ExtResource("1_osnah")
+value = 100
+cost = 1
+metadata/_custom_type_script = "uid://biwna7uagebol"

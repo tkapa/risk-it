@@ -4,7 +4,7 @@ class_name CashInMenu extends Control
 @onready var option_ui_2 : OptionUI = %Option2
 @onready var option_ui_3 : OptionUI = %Option3
 
-@export var power_up_option : ChipStrategy
+@export var power_ups : Array[ChipStrategy] = []
 
 func _ready():
 	SignalBus.player_cash_in.connect(_on_player_cash_in)
@@ -24,4 +24,4 @@ func _on_visibility_changed():
 	option_ui_1.button.grab_focus()
 
 func _roll_option(ui: OptionUI):
-	ui.init(power_up_option)
+	ui.init(power_ups.pick_random())

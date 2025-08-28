@@ -9,3 +9,5 @@ signal drop_chip_pickup(position: Vector2, chip_stats: ChipStats)
 
 signal pause_game(show_menu: Control)
 signal unpause_game
+
+signal start_game

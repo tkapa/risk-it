@@ -52,11 +52,9 @@ func _get_movement():
 	return Vector2(x, y)
 
 func _on_health_component_health_updated(new_current_health: int, previous_health: int):
-	print("Health Updated: Curr: ", new_current_health, " Previous: ", previous_health)
 	SignalBus.player_health_updated.emit(new_current_health, previous_health)
 
 func _on_health_component_on_death():
-	print("Player Died!")
 	SignalBus.player_died.emit()
 
 func _setup_chip() -> Chip:

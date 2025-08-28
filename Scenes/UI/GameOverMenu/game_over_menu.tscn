@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://cujup8vm33t0v"]
+
+[ext_resource type="Script" uid="uid://dp2hklw5fuk5a" path="res://Scenes/UI/GameOverMenu/game_over_menu.gd" id="1_gcy3d"]
+[ext_resource type="Theme" uid="uid://c8sqrg1dqvo5y" path="res://Resources/Themes/default_ui.tres" id="1_px2o7"]
+
+[node name="GameOverMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_px2o7")
+script = ExtResource("1_gcy3d")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(320, 200)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="You Died!" type="Label" parent="CenterContainer/Panel/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "You Died!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="CenterContainer/Panel/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/Panel/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../RestartButton")
+focus_neighbor_bottom = NodePath("../RestartButton")
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/Panel/CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
