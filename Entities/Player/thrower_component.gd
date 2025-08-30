@@ -14,7 +14,7 @@ var _parent : CharacterBody2D
 func init(parent: CharacterBody2D):
 	_parent = parent
 
-func _process(delta):
+func _process(_delta):
 	if InputManager.using_controller:
 		_cursor_dir = InputManager.look_vector()
 	else:
@@ -27,6 +27,7 @@ func throw(strategies: Array[ChipStrategy]):
 	var chip : Chip = _setup_chip(strategies)
 	process_chip_cost.emit(chip.chip_cost)
 	_parent.add_sibling(chip)
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.PLAYER_THROW)
 
 func _setup_chip(strategies: Array[ChipStrategy]) -> Chip:
 	var chip : Chip = base_chip.instantiate()
@@ -35,8 +36,5 @@ func _setup_chip(strategies: Array[ChipStrategy]) -> Chip:
 	chip.init(base_throw_strength, _cursor_dir)
 	
 	for strat in strategies:
-		print("Applying: ", strat.name)
 		strat.apply_strategy(chip)
-	
-	print("---")
 	return chip

@@ -12,3 +12,7 @@ signal pause_game(show_menu: Control)
 signal unpause_game
 
 signal start_game
+
+signal play_bgm(stream: AudioStream)
+signal play_sfx(stream: AudioStream)
+signal play_sfx_2d(stream: AudioStream, position: Vector2)

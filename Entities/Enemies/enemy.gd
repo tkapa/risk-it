@@ -17,5 +17,6 @@ func _physics_process(delta):
 	enemy_stats.move(self, player_position, delta)
 
 func _on_health_component_on_death():
+	AudioManager.create_2d_audio_at_location(position, enemy_stats.sound_effect)
 	SignalBus.drop_chip_pickup.emit(position, enemy_stats.chip_drop)
 	queue_free()

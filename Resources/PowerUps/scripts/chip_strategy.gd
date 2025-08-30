@@ -9,5 +9,5 @@ class_name ChipStrategy extends Resource
 @export var value : int = 1
 @export var cost : int = 1
 
-func apply_strategy(chip: Chip):
+func apply_strategy(_chip: Chip):
 	pass

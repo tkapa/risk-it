@@ -23,6 +23,7 @@ GameManager="*res://Scripts/game_manager.gd"
 PickupManager="*res://Scripts/pickup_manager.gd"
 PauseManager="*res://Scripts/pause_manager.gd"
 InputManager="*res://Scripts/input_manager.gd"
+AudioManager="*res://Scripts/AudioManager.tscn"
 
 [display]
 

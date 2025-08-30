@@ -18,7 +18,7 @@ func _ready():
 	thrower_component.init(self)
 	SignalBus.player_grant_power_up.connect(_add_chip_strategy)
 
-func _process(delta):
+func _process(_delta):
 	if InputManager.wants_throw():
 		thrower_component.throw(chip_strategies)
 
@@ -27,7 +27,7 @@ func _process_cost(damage: int):
 	attack.damage = damage
 	health.take_damage(attack)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var input_vector = InputManager.movement_vector()
 	velocity = input_vector * move_speed
 	move_and_slide()
