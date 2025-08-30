@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddgefhw6ojm16"]
+[gd_scene load_steps=16 format=3 uid="uid://ddgefhw6ojm16"]
 
 [ext_resource type="Script" uid="uid://dr3m7nqqapjrg" path="res://Entities/Player/player.gd" id="1_3uyv8"]
 [ext_resource type="Texture2D" uid="uid://drdrg20bydfg8" path="res://Assets/Player/Risk.png" id="1_mv1ah"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://g8lh65rii5n" path="res://Components/HealthComponent/HealthComponent.tscn" id="3_lu8i8"]
 [ext_resource type="PackedScene" uid="uid://dcdqr53wunobp" path="res://Components/HurtboxComponent/HurtboxComponent.tscn" id="4_tekja"]
 [ext_resource type="PackedScene" uid="uid://b2ak7xv3n0btv" path="res://Components/PickUpMagnet/PickUpMagnetComponent.tscn" id="6_01a4e"]
+[ext_resource type="Script" uid="uid://d3qfsg7ya1c0m" path="res://Entities/Player/cash_in_component.gd" id="8_7a1se"]
+[ext_resource type="Texture2D" uid="uid://btey80oa8hgq" path="res://Assets/pointer.png" id="9_lub02"]
+[ext_resource type="Script" uid="uid://c0n1annf7wbod" path="res://Entities/Player/thrower_component.gd" id="9_x1y6q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3uyv8"]
 atlas = ExtResource("1_mv1ah")
@@ -35,7 +38,7 @@ radius = 4.0
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_3uyv8")
-base_chip = ExtResource("2_5c2io")
+base_health = 500
 
 [node name="DropShadow" parent="." instance=ExtResource("3_4wf4l")]
 offset = Vector2(0, 2)
@@ -61,5 +64,22 @@ collision_mask = 4
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_tekja")
 
+[node name="CashInComponent" type="Node" parent="."]
+script = ExtResource("8_7a1se")
+
+[node name="ThrowerComponent" type="Node2D" parent="."]
+script = ExtResource("9_x1y6q")
+base_chip = ExtResource("2_5c2io")
+
+[node name="AimComponent" type="Node2D" parent="ThrowerComponent"]
+rotation = 1.5708
+
+[node name="Pointer" type="Sprite2D" parent="ThrowerComponent/AimComponent"]
+position = Vector2(0, -18)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_lub02")
+
 [connection signal="health_updated" from="HealthComponent" to="." method="_on_health_component_health_updated"]
 [connection signal="on_death" from="HealthComponent" to="." method="_on_health_component_on_death"]
+[connection signal="try_cash_in" from="CashInComponent" to="." method="_on_cash_in_component_try_cash_in"]
+[connection signal="process_chip_cost" from="ThrowerComponent" to="." method="_on_thrower_component_process_chip_cost"]

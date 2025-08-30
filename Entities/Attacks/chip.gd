@@ -1,4 +1,4 @@
-class_name Chip extends CharacterBody2D
+class_name Chip extends Area2D
 
 var direction : Vector2 = Vector2.UP
 
@@ -19,8 +19,7 @@ func _ready():
 	hitbox.damage = damage
 
 func _physics_process(delta):
-	velocity = direction * move_speed	
-	move_and_slide()
+	position += direction * move_speed * delta
 	
 	move_speed -= speed_decay
 	if move_speed < 0:
@@ -33,5 +32,8 @@ func _on_cleanup():
 func _on_hitbox_component_hit():
 	maximum_hits -= 1
 	
+	print("Hits: ", maximum_hits)
+
 	if maximum_hits <= 0:
+		print("Chip no hits")
 		_on_cleanup()

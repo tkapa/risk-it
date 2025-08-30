@@ -6,19 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://c4o66nlqmj07u" path="res://Components/HitboxComponent/HitboxComponent.tscn" id="3_y4kt8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u6qvb"]
+radius = 0.01
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3ngcf"]
 radius = 9.0
 
-[node name="Chip" type="CharacterBody2D"]
+[node name="Chip" type="Area2D"]
 collision_layer = 0
 collision_mask = 0
-motion_mode = 1
 script = ExtResource("1_oqvyq")
 chip_drop = ExtResource("2_y4kt8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_u6qvb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -7,7 +7,7 @@ func _ready():
 	visibility_changed.connect(_on_show)
 
 func _process(delta):
-	if Input.is_action_just_pressed("pause"):
+	if InputManager.wants_pause():
 		if PauseManager.is_paused: 
 			SignalBus.unpause_game.emit()
 		else:
