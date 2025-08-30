@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SpeedChipStrategy" load_steps=3 format=3 uid="uid://ww2scusgbqar"]
 
 [ext_resource type="Script" uid="uid://biwna7uagebol" path="res://Resources/PowerUps/scripts/speed_multiplier.gd" id="1_6dmjb"]
-[ext_resource type="Texture2D" uid="uid://dldxdydjdq3m2" path="res://Assets/PowerUps/Biscuit3.png" id="1_osnah"]
+[ext_resource type="Texture2D" uid="uid://bg8uuokxxcsap" path="res://Assets/PowerUps/Biscuit4.png" id="1_osnah"]
 
 [resource]
 script = ExtResource("1_6dmjb")
