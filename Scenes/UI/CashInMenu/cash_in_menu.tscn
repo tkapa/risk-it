@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cq2423i8mp22r"]
+[gd_scene load_steps=13 format=3 uid="uid://cq2423i8mp22r"]
 
 [ext_resource type="Script" uid="uid://0mnk0cnnd08q" path="res://Scenes/UI/CashInMenu/cash_in_menu.gd" id="1_aimdy"]
 [ext_resource type="Theme" uid="uid://c8sqrg1dqvo5y" path="res://Resources/Themes/default_ui.tres" id="1_x4pae"]
@@ -8,6 +8,10 @@
 [ext_resource type="Resource" uid="uid://bka3khmr362xj" path="res://Resources/PowerUps/pierce_increase.tres" id="4_5y8mk"]
 [ext_resource type="Resource" uid="uid://ww2scusgbqar" path="res://Resources/PowerUps/speed_increase.tres" id="5_8v2ky"]
 [ext_resource type="Texture2D" uid="uid://ck8qoaq0tqrto" path="res://Assets/Chips/Chip-1.png" id="5_xox3h"]
+[ext_resource type="Texture2D" uid="uid://cy4n8tt3ka1hi" path="res://Assets/PowerUps/Biscuit1.png" id="8_6e04a"]
+[ext_resource type="Texture2D" uid="uid://ddohnfcms5m7a" path="res://Assets/PowerUps/Biscuit2.png" id="9_xghh4"]
+[ext_resource type="Texture2D" uid="uid://dldxdydjdq3m2" path="res://Assets/PowerUps/Biscuit3.png" id="10_kn54f"]
+[ext_resource type="Texture2D" uid="uid://bg8uuokxxcsap" path="res://Assets/PowerUps/Biscuit4.png" id="11_mjsqd"]
 
 [node name="CashInMenu" type="Control"]
 visible = false
@@ -57,15 +61,17 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 script = ExtResource("3_8d1is")
+cycle_textures = Array[Texture2D]([ExtResource("8_6e04a"), ExtResource("9_xghh4"), ExtResource("10_kn54f"), ExtResource("11_mjsqd")])
 
-[node name="OptionName" type="Label" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option1"]
-custom_minimum_size = Vector2(100, 0)
+[node name="OptionName" type="RichTextLabel" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option1"]
+custom_minimum_size = Vector2(100, 25)
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
 text = "Option 1"
+autowrap_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="OptionIcon" type="TextureRect" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option1"]
 custom_minimum_size = Vector2(30, 30)
@@ -73,15 +79,17 @@ layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("5_xox3h")
 
-[node name="Description" type="Label" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option1"]
-custom_minimum_size = Vector2(100, 0)
+[node name="Description" type="RichTextLabel" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option1"]
+custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/bold_italics_font_size = 0
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
 text = "This power up does stuff"
+autowrap_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="AcceptButton" type="Button" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option1"]
 custom_minimum_size = Vector2(100, 25)
@@ -97,15 +105,17 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 script = ExtResource("3_8d1is")
+cycle_textures = Array[Texture2D]([ExtResource("8_6e04a"), ExtResource("9_xghh4"), ExtResource("10_kn54f"), ExtResource("11_mjsqd")])
 
-[node name="OptionName" type="Label" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option2"]
-custom_minimum_size = Vector2(100, 0)
+[node name="OptionName" type="RichTextLabel" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option2"]
+custom_minimum_size = Vector2(100, 25)
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
 text = "Option 1"
+autowrap_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="OptionIcon" type="TextureRect" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option2"]
 custom_minimum_size = Vector2(30, 30)
@@ -113,15 +123,17 @@ layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("5_xox3h")
 
-[node name="Description" type="Label" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option2"]
-custom_minimum_size = Vector2(100, 0)
+[node name="Description" type="RichTextLabel" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option2"]
+custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/bold_italics_font_size = 0
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
 text = "This power up does stuff"
+autowrap_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="AcceptButton" type="Button" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option2"]
 custom_minimum_size = Vector2(100, 25)
@@ -137,15 +149,17 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 script = ExtResource("3_8d1is")
+cycle_textures = Array[Texture2D]([ExtResource("8_6e04a"), ExtResource("9_xghh4"), ExtResource("10_kn54f"), ExtResource("11_mjsqd")])
 
-[node name="OptionName" type="Label" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option3"]
-custom_minimum_size = Vector2(100, 0)
+[node name="OptionName" type="RichTextLabel" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option3"]
+custom_minimum_size = Vector2(100, 25)
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
 text = "Option 1"
+autowrap_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="OptionIcon" type="TextureRect" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option3"]
 custom_minimum_size = Vector2(30, 30)
@@ -153,15 +167,17 @@ layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("5_xox3h")
 
-[node name="Description" type="Label" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option3"]
-custom_minimum_size = Vector2(100, 0)
+[node name="Description" type="RichTextLabel" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option3"]
+custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/bold_italics_font_size = 0
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
 text = "This power up does stuff"
+autowrap_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="AcceptButton" type="Button" parent="CenterContainer/Panel/VBoxContainer/CenterContainer/HBoxContainer/Option3"]
 custom_minimum_size = Vector2(100, 25)

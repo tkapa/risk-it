@@ -78,13 +78,14 @@ position = Vector2(247.333, 142)
 position = Vector2(214, 119.333)
 script = ExtResource("8_d1ilt")
 
-[node name="ChipPickup" parent="GameArea" instance=ExtResource("4_jjvhh")]
-position = Vector2(226, 129.333)
-
-[node name="EnemySpawnTrack" type="Path2D" parent="GameArea"]
+[node name="EnemySpawnTrack" type="Path2D" parent="GameArea/Camera2D"]
+position = Vector2(-214, -119.333)
 curve = SubResource("Curve2D_21xkr")
 script = ExtResource("7_6bp64")
 
-[node name="EnemySpawnPoint" type="PathFollow2D" parent="GameArea/EnemySpawnTrack"]
+[node name="EnemySpawnPoint" type="PathFollow2D" parent="GameArea/Camera2D/EnemySpawnTrack"]
 position = Vector2(433.333, -6.66667)
 rotation = 1.56814
+
+[node name="ChipPickup" parent="GameArea" instance=ExtResource("4_jjvhh")]
+position = Vector2(226, 129.333)

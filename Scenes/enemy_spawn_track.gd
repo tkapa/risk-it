@@ -21,4 +21,4 @@ func _on_spawn_timer_timeout():
 	enemy.position = spawn_point.position
 	enemy.enemy_stats = slime
 	
-	get_parent().add_child(enemy)
+	GameManager.game_node.add_child(enemy)

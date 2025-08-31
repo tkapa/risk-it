@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpqjgx6x7u68e"]
+[gd_scene load_steps=4 format=3 uid="uid://cpqjgx6x7u68e"]
 
 [ext_resource type="Theme" uid="uid://c8sqrg1dqvo5y" path="res://Resources/Themes/default_ui.tres" id="1_5wsvm"]
 [ext_resource type="Script" uid="uid://bcy43m5pdeex5" path="res://Scenes/UI/MainMenu/main_menu.gd" id="2_i2xx2"]
+[ext_resource type="Texture2D" uid="uid://carfw6epmi7iy" path="res://Assets/Splash1080.png" id="3_tik7u"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,15 +14,15 @@ grow_vertical = 2
 theme = ExtResource("1_5wsvm")
 script = ExtResource("2_i2xx2")
 
-[node name="GameName" type="Label" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-offset_right = 640.0
-offset_bottom = 150.0
-theme = ExtResource("1_5wsvm")
-theme_override_font_sizes/font_size = 50
-text = "Biscuit Survivors"
-horizontal_alignment = 1
-vertical_alignment = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_tik7u")
+expand_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

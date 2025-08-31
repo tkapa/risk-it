@@ -21,4 +21,4 @@ func _on_grant_power_up(s: ChipStrategy):
 	SignalBus.unpause_game.emit()
 
 func _roll_option(ui: OptionUI):
-	ui.init(power_ups.pick_random())
+	ui.roll(power_ups.pick_random())

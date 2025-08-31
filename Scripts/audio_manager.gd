@@ -11,6 +11,8 @@ var sound_effect_dict: Dictionary = {} ## Loads all registered SoundEffects on r
 
 @export var sound_effects: Array[SoundEffect] ## Stores all possible SoundEffects that can be played.
 
+const SFX_BUS_NAME : StringName = "SFX"
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	for sound_effect: SoundEffect in sound_effects:
@@ -31,6 +33,7 @@ func create_2d_audio_at_location(location: Vector2, type: SoundEffect.SOUND_EFFE
 			new_2D_audio.pitch_scale += randf_range(-sound_effect.pitch_randomness, sound_effect.pitch_randomness )
 			new_2D_audio.finished.connect(sound_effect.on_audio_finished)
 			new_2D_audio.finished.connect(new_2D_audio.queue_free)
+			new_2D_audio.bus = SFX_BUS_NAME
 			new_2D_audio.play()
 	else:
 		push_error("Audio Manager failed to find setting for type ", type)
@@ -49,6 +52,7 @@ func create_audio(type: SoundEffect.SOUND_EFFECT_TYPE) -> void:
 			new_audio.pitch_scale += randf_range(-sound_effect.pitch_randomness, sound_effect.pitch_randomness )
 			new_audio.finished.connect(sound_effect.on_audio_finished)
 			new_audio.finished.connect(new_audio.queue_free)
+			new_audio.bus = SFX_BUS_NAME
 			new_audio.play()
 	else:
 		push_error("Audio Manager failed to find setting for type ", type)

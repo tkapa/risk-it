@@ -15,7 +15,7 @@ type = 0
 sound_effect = ExtResource("3_i1r4f")
 volume = 0.0
 pitch_scale = 1.0
-pitch_randomness = 0.0
+pitch_randomness = 0.5
 metadata/_custom_type_script = "uid://dfw8vlx6kyret"
 
 [sub_resource type="Resource" id="Resource_xb6i0"]
@@ -25,7 +25,7 @@ type = 1
 sound_effect = ExtResource("4_mbw3n")
 volume = 0.0
 pitch_scale = 1.0
-pitch_randomness = 0.0
+pitch_randomness = 0.5
 metadata/_custom_type_script = "uid://dfw8vlx6kyret"
 
 [sub_resource type="Resource" id="Resource_rw622"]
@@ -35,7 +35,7 @@ type = 4
 sound_effect = ExtResource("5_j56hb")
 volume = 0.0
 pitch_scale = 1.0
-pitch_randomness = 0.0
+pitch_randomness = 0.5
 metadata/_custom_type_script = "uid://dfw8vlx6kyret"
 
 [sub_resource type="Resource" id="Resource_hhrx1"]
@@ -45,7 +45,7 @@ type = 6
 sound_effect = ExtResource("6_iu73r")
 volume = 0.0
 pitch_scale = 1.0
-pitch_randomness = 0.0
+pitch_randomness = 0.5
 metadata/_custom_type_script = "uid://dfw8vlx6kyret"
 
 [sub_resource type="Resource" id="Resource_v72tj"]
@@ -55,7 +55,7 @@ type = 7
 sound_effect = ExtResource("6_iu73r")
 volume = 0.0
 pitch_scale = 1.0
-pitch_randomness = 0.0
+pitch_randomness = 0.5
 metadata/_custom_type_script = "uid://dfw8vlx6kyret"
 
 [sub_resource type="Resource" id="Resource_yocfq"]
@@ -65,7 +65,7 @@ type = 5
 sound_effect = ExtResource("5_j56hb")
 volume = 0.0
 pitch_scale = 2.0
-pitch_randomness = 0.3
+pitch_randomness = 0.5
 metadata/_custom_type_script = "uid://dfw8vlx6kyret"
 
 [sub_resource type="Resource" id="Resource_i1r4f"]
@@ -75,7 +75,7 @@ type = 3
 sound_effect = ExtResource("7_awy4y")
 volume = 0.0
 pitch_scale = 1.0
-pitch_randomness = 0.0
+pitch_randomness = 0.5
 metadata/_custom_type_script = "uid://dfw8vlx6kyret"
 
 [node name="AudioManager" type="Node2D"]
