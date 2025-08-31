@@ -38,7 +38,6 @@ radius = 4.0
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_3uyv8")
-base_health = 500
 
 [node name="DropShadow" parent="." instance=ExtResource("3_4wf4l")]
 offset = Vector2(0, 2)
